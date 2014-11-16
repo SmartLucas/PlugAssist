@@ -1,0 +1,28 @@
+{
+    "start":             "Welcome on PlugAssist v'",
+    "close":             "ByeBye!",
+    
+    "Options" :          "Options",
+    "POptions":          "Plug Assist Options",
+    "Autowoot":          "Autowoot",
+    "JMessage":          "Join Message",
+    "AFKrespond":        "Afk Autorespond",
+    "Colorset":          "Color settings",
+    "You":               "You",
+    "Bouncer":           "Bouncer",
+    "Manager":           "Manager",
+    "CoOwner":           "Co-Owner",
+    "Owner":             "Owner",
+    "ResidentDJ":        "Resident Dj",
+    "Ambassador":        "Ambassador",
+    "Moderation":        "Moderation",
+    
+    "boothAlert":        "You are coming after this song!",
+    "userJoin":          " joined the community!",
+
+    "please_select":     "Please select a user (Click on their username in chat or in userlist)",
+    "or_type":           "Or type in /id @(name)",
+    "useAlert":          "I am using the PlugAssist script in this language!",
+    
+    "chat_input_afk":    "Turn off Auto Responder to Chat!"
+}
