@@ -1,7 +1,7 @@
 var Langapi = {
         userlang    : API.getUser().language,  
         en          : 'https://cdn.rawgit.com/Pogodaanton/PlugAssist/master/PAlang_en.json',
-        fr          : 'null',
+        fr          : 'https://cdn.rawgit.com/Pogodaanton/PlugAssist/master/PAlang_fr.json',
           
         lang        : function() { 
           if (this.userlang !== 'en' && this.userlang !== 'fr') {
