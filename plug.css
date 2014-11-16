@@ -1,0 +1,336 @@
+#room {background: none;}
+body {background:#272727;}
+
+#PlugAssist {
+	background: #0A0A0A;
+	width: 220px;
+	margin-top: 53px;
+}
+
+.room-background {
+    background: url(https://www.dropbox.com/s/bx24g5qxudfrin8/booth.jpg?dl=1) no-repeat !important;
+    width: 500% !important;
+    height: 500% !important;
+}
+
+#chat .aqua {
+    border-left: #009cdd 3px solid;
+    color: #009cdd;
+    font-weight: 700;
+}
+#chat .red {
+    border-left: #D31F1F 3px solid;   
+    color: #C76E6E;
+    font-weight: 700;
+}
+.onoffswitch {
+	float: right;
+	margin-top: -15px;
+}
+
+.block {display:block !important;}
+.noblock {display:none !important;}
+.options {top:0px !important;left:auto !important; right:60px;}
+
+#user-lists, #waitlist, #PA-options {
+	position: absolute;
+	top: 0;
+	z-index: 3;
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+
+#PA-button i {
+	position: relative;
+	top: 13px;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+#PA-options .list .user .name i {
+	position: relative;
+	top: 3px;
+	display: none;
+	float: left;
+	margin-right: 4px;
+}
+
+#PA-options .header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 345px;
+	height: 46px;
+	border-bottom: #1C1F25 1px solid;
+}
+
+#PA-options .header .button {
+    position: relative;
+    top: 4px;
+    float: left;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+}
+
+#PA-options .header .button.main.selected { border-bottom: 1px solid #808691; }
+#PA-options .header .button.color.selected {border-bottom: 1px solid #AC76FF; }
+#PA-options .header .button.main i, #PA-options .header .button.color i { top: 5px; left: 6px; }
+
+#PA-options .header .divider {
+	position: absolute;
+	top: 0;
+	width: 215px;
+	height: 1px;
+	background: #1C1F25;
+}
+
+#PA-options .list-header {
+    position: absolute;
+    left: 160px;
+    width: 345px;
+    height: 48px;
+    border-bottom: #1C1F25 1px solid;
+}
+
+#PA-options .list-header .title {
+    position: relative;
+    top: 11px;
+    margin-left: 12px;
+    font-size: 18px;
+}
+
+#PA-options .list-header .clear-filter {
+    position: absolute;
+    top: 11px;
+    right: 20px;
+    display: none;
+    overflow: hidden;
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+}
+
+#PA-options .list .user .icon-drag-handle {
+	top: 5px;
+	left: 6px;
+	display: none;
+}
+
+#PA-options .list .user {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 41px;
+	background: #0A0A0A;
+}
+
+#PA-options .list {
+	position: absolute;
+	top: 47px;
+	left: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	width: 345px;
+    display:none;
+}
+
+#PA-options .list .user .meta {
+	position: absolute;
+	top: 0;
+	left: 18px;
+	overflow: hidden;
+	width: 310px;
+	height: 40px;
+	border-bottom: 1px solid #282C35;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#PA-options  .list .user .position {
+	position: relative;
+	top: 9px;
+	float: left;
+	color: #808691;
+	font-weight: 600;
+	font-size: 16px;
+}
+
+#PA-options .list .user .name {
+	position: relative;
+	top: 9px;
+	float: left;
+	margin-left: 6px;
+	font-size: 16px;
+	color: #999;
+}
+
+#PA-options  .list .user .image {
+	position: relative;
+	top: 5px;
+	float: left;
+	margin-left: 9px;
+	width: 31px;
+	height: 31px;
+}
+
+#PA-options .list .user .icon-woot-disabled {
+	position: relative;
+	float: right;
+	margin-right: 10px;
+	top: 5px;
+	display: none;
+	cursor: pointer;
+}
+
+#PA-options .list .user .icon-x-white {
+	position: relative;
+	float: right;
+	top: 6px;
+	margin-right: 1px;
+	display: none;
+	cursor: pointer;
+}
+
+#Afk-input-field {
+    background: #121212;
+    padding: 5px;
+    border: 0;
+    padding-left: 10px;
+    color:#fff;
+}
+
+#Afk-input-field::-webkit-input-placeholder {
+   color: #fff;
+}
+
+#Afk-input-field:-moz-placeholder { /* Firefox 18- */
+   color: #fff;  
+}
+
+#Afk-input-field::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;  
+}
+
+#Afk-input-field:-ms-input-placeholder {  
+   color: #fff;  
+}
+
+.clickable {cursor:pointer;}
+
+.chatx { 
+    right: 0px;
+    top: 0px !important;
+    background: url('https://cdn.plug.dj/_/static/images/icons.26d92b95b77064f5b82903da724f2518b512cc2a.png') #111317;
+    background-position: -245px -245px;
+    height: 28px;
+    left: inherit !important;
+    opacity:0;
+}
+  
+.chatx:hover {opacity:1;}
+
+.icon.icon-chat-Plugassist {
+	background: url(https://www.dropbox.com/s/uj1967vf9szl9h9/icon.png?dl=1) !important;
+	background-repeat: no-repeat !important;
+	left: 4px !important;
+}
+
+.icon.icon-chat-litebot {
+    background: url(https://code.radiant.dj/img/icon.litebot.png) !important;
+    background-repeat: no-repeat !important;
+}
+
+.uid-4236470 {border-left: #D31F1F 3px solid; color: #C76E6E;}
+.uid-4236470 span.from {color: #fff !important;}
+
+.uid-4067850 {border-left: #C022EC 3px solid !important; color: #C022EC !important;}
+.uid-4067850 span.from {color: #fff !important;}
+
+.uid-3454266 {border-left: #CD01CA 3px solid !important; background: #470046 !important;}
+.uid-3454266 span {font-style: normal; font-weight: 700;}
+
+#chat .message:nth-child(2n+1),#chat .mention:nth-child(2n+1),#chat .skip:nth-child(2n+1),#chat .moderation:nth-child(2n+1),#chat .emote:nth-child(2n+1),#chat .update:nth-child(2n+1),#chat .welcome:nth-child(2n+1) {
+    -webkit-animation:fadein 0.6s;
+    -moz-animation:fadein 0.6s;
+    -ms-animation:fadein 0.6s;
+    -o-animation:fadein 0.6s;
+    animation:fadein 0.6s;
+}
+#chat .emote, #chat .mention, #chat .message, #chat .moderation, #chat .skip, #chat .system, #chat .update, #chat .welcome {
+    -webkit-animation:fadein 0.6s;
+    -moz-animation:fadein 0.6s;
+    -ms-animation:fadein 0.6s;
+    -o-animation:fadein 0.6s;
+    animation:fadein 0.6s;
+}
+
+#waitlist .list .user.locked .icon-x-white, #PA-options .list .user.locked .icon-x-white , #waitlist .list.bouncer .user .icon-x-white, #waitlist .list.manager .user.locked .icon-x-white {
+margin-right: 9px;
+}
+
+.CHC{
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	padding: 2px 4px;
+	width: 20px;
+	margin: 7px;
+	position: absolute;
+	right: 0;
+}
+
+.list div.user i.check {
+	position: absolute;
+	right: 0;
+	margin: 13px;
+}
+
+#inner div {margin-bottom:10px;}
+#PlugAssist header h3 {font-weight: 600;}
+#PlugAssist header {background: #1C1F25;padding: 10px; font-weight: 300;}
+#inner {padding: 10px;}
+#PlugAssist header .icon-settings-white {margin-top: 5px;}
+/*.item i {display:none;}*/
+/*.item span {margin-left: 25px;}*/
+.selected i {display:block;}
+#waitlist-button {left: 172px; width: 92px;}
+#users-button {left: 79px; width: 92px; }
+#PA-button {left: 264px; width: 40px; }
+#friends-button {left: 305px;width: 40px;}
+/*//////////dividers/////////*/
+.app-right .friends .list-header .divider {width: 304px;}
+#user-lists .header .divider.right {width: 174px;}
+#user-lists .header .divider.left {width: 79px;}
+#waitlist .header .divider.left {width: 171px;}
+#waitlist .header .divider.right {width: 81px;}
+#PA-options .header .divider.left {width: 264px; left:0;}
+#PA-options .header .divider.right {width: 41px; right:0;}
+
+/*//////////Keyframes/////////*/
+
+@keyframes fadein {
+   0% {opacity:0;}
+   26% {opacity:0;}
+   100%{opacity:1;}
+}
+@-moz-keyframes fadein {
+   0% {opacity:0;}
+   26% {opacity:0;}
+   100%{opacity:1;}
+}
+@-webkit-keyframes fadein {
+   0% {opacity:0;}
+   26% {opacity:0;}
+   100%{opacity:1;}
+}
+@-ms-keyframes fadein {
+   0% {opacity:0;}
+   26% {opacity:0;}
+   100%{opacity:1;}
+}
+@-o-keyframes fadein:{
+   0% {opacity:0;}
+   26% {opacity:0;}
+   100%{opacity:1;}
+}
