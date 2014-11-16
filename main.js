@@ -1,6 +1,6 @@
 var Langapi = {
         userlang    : API.getUser().language,  
-        en          : 'http://download1569.mediafire.com/2ja0vit7okpg/ewuaz68faoz2nnv/PAlang_en.json',
+        en          : 'https://cdn.rawgit.com/Pogodaanton/PlugAssist/master/PAlang_en.json',
         fr          : 'null',
           
         lang        : function() { 
