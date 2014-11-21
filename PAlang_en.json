@@ -24,7 +24,7 @@
     "or_type":           "Or type in /id @(name)",
     "useAlert":          "I am using the PlugAssist script in this language!",
     
-    "chat_input_afk":    "Turn off Auto Responder to Chat!"
+    "chat_input_afk":    "Turn off Auto Responder to Chat!",
     
     "notify_test":       "The notifications has to be closed manually at the moment. sorry..."
 }
