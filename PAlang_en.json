@@ -1,5 +1,5 @@
 {
-    "start":             "Welcome on PlugAssist v",
+    "start":             "Welcome on PlugAssist v'",
     "close":             "ByeBye!",
     
     "Options" :          "Options",
@@ -25,4 +25,6 @@
     "useAlert":          "I am using the PlugAssist script in this language!",
     
     "chat_input_afk":    "Turn off Auto Responder to Chat!"
+    
+    "notify_test":       "The notifications has to be closed manually at the moment. sorry..."
 }
