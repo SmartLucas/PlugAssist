@@ -24,7 +24,7 @@ javascript:(function(){if (API.enabled && $("#PlugAssist-css").length <= 0) {$.g
 Can I help?
 ===========
 
-Yes, you can! I need translators to translate my script  (logic...).
+Yes, you can! I need translators to translate my script  (logic...). Just Email me: anton12002@hotmail.com
 
 | Languages     | Done |
 | ------------- |:-:|
