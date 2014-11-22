@@ -8,6 +8,7 @@
     "JMessage":          "Join Message",
     "AFKrespond":        "Afk Autorespond",
     "Colorset":          "Color settings",
+    "Mainset":           "Main settings",
     "You":               "You",
     "Bouncer":           "Bouncer",
     "Manager":           "Manager",
@@ -23,6 +24,7 @@
     "please_select":     "Please select a user (Click on their username in chat or in userlist)",
     "or_type":           "Or type in /id @(name)",
     "useAlert":          "I am using the PlugAssist script in this language!",
+    
     "chat_input_afk":    "Turn off Auto Responder to Chat!",
     
     "notify_test":       "The notifications has to be closed manually at the moment. sorry..."
