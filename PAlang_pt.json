@@ -1,0 +1,33 @@
+/*Traslate By DubNoise(SmartLucas)
+*/
+{
+    "start":             "Welcome on PlugAssist v'",
+    "close":             "ByeBye!",
+    
+    "Options" :          "Opções",
+    "POptions":          "Opções do Plug Assist",
+    "Autowoot":          "Autowoot",
+    "JMessage":          "Mensagem de entrada",
+    "AFKrespond":        "Resposta Automática Afk",
+    "Colorset":          "Opções de cor",
+    "Mainset":           "Funções Principais",
+    "You":               "Você",
+    "Bouncer":           "Segurança",
+    "Manager":           "Coordenador",
+    "CoOwner":           "Co-Anfitrião",
+    "Owner":             "Anfitrião",
+    "ResidentDJ":        "Dj Resident",
+    "Ambassador":        "Embaixador",
+    "Moderation":        "Moderação",
+    
+    "boothAlert":        "Você esta vindo após esta música!",
+    "userJoin":          " Entrou na comunidade!",
+
+    "please_select":     "Por favor selecione um usuário (Clique no nome dele no chat ou na lista de espera)",
+    "or_type":           "Ou digitar / id @ (nome)",
+    "useAlert":          "Eu estou usando o script PlugAssist nesta linguagem!",
+    
+    "chat_input_afk":    "Desligar resposta automática!",
+    
+    "notify_test":       "As notificações tem de ser fechadas manualmente no momento.desculpe..."
+}
