@@ -6,6 +6,7 @@
     "POptions":          "Plug Assist Options",
     "Autowoot":          "Autowoot",
     "JMessage":          "Join Message",
+    "LMessage":          "Leave Message",
     "AFKrespond":        "Afk Autorespond",
     "Colorset":          "Color settings",
     "Mainset":           "Main settings",
@@ -20,6 +21,7 @@
     
     "boothAlert":        "You are coming after this song!",
     "userJoin":          " joined the community!",
+    "userLeave":         " left the community!",
 
     "please_select":     "Please select a user (Click on their username in chat or in userlist)",
     "or_type":           "Or type in /id @(name)",
