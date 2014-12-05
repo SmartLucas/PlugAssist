@@ -26,6 +26,9 @@
     "useAlert":          "Eu estou usando o script PlugAssist nesta linguagem!",
     
     "chat_input_afk":    "Desligar resposta automática!",
+    "maindev":           "Main developer of PA",
+    "Betatest":          "Beta tester of PA",
+    "Translator":        "Translator of PA",
     
-    "notify_test":       "As notificações tem de ser fechadas manualmente no momento.desculpe..."
+    "notify_test":       "Notifications are closing itself after 4 seconds."
 }
