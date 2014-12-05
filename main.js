@@ -1,23 +1,34 @@
+////////////////////////////////////
+///////////////////////////////////
+///////////////////////////////////
+
 var Langapi = {
         userlang    : API.getUser().language,  
-        en          : 'https://cdn.rawgit.com/Pogodaanton/PlugAssist/master/PAlang_en.json',
-        fr          : 'null',
+        fr          : 'https://rawgit.com/Pogodaanton/PlugAssist/master/PAlang_fr.json',
+        pt          : 'https://rawgit.com/Pogodaanton/PlugAssist/master/PAlang_pt.json',
           
         lang        : function() { 
-          if (this.userlang !== 'en' && this.userlang !== 'fr') {
-            API.chatLog('Unfortunately, we have not got PlugAssist in your Language. If you want to help us send an e-mail to pogodaanton@shrib.com');
-            return Langapi.en;
-          } else if (this.userlang === 'en') {return Langapi.en;}
-            else if (this.userlang === 'fr') {return Langapi.fr;}
+          if (this.userlang !== 'en' && this.userlang !== 'fr' && this.userlang !== 'pt') {
+            API.chatLog('Unfortunately, we have not got PlugAssist in your Language. If you want to help us send an e-mail to anton12002@hotmail.com');
+            return 'en';
+          } else {return this.userlang;}
         }
 }
 
-$.get(Langapi.lang(), function(lang){
-var checkedaw = 0;
+var lang = null;
+var loadlang = function() {
+    $.get('https://rawgit.com/Pogodaanton/PlugAssist/master/PAlang_'+ Langapi.lang() +'.json', function(langl) {
+        lang = langl;
+    });
+};
+loadlang();
+
 var PApi = {
-		version     : "1.0 Beta",
+		version     : "1.1 Closed Beta",
+        run         : 0,
         userName    : API.getUser().username,
         userRole    : API.getUser().role,
+        curid       : 0,
         Awoot       : false,
         TAwoot      : '',
         Join        : false,
@@ -59,6 +70,88 @@ var PApi = {
             }
             return "";
         },
+  
+        notification: function(title,text) {
+        Notification.requestPermission();
+        var c = 0;
+        var n = new Notification(title,  {
+            icon: '', 
+            tag: 'note', 
+            body: text
+        });
+        n.on = n.addEventListener;
+        n.on('show', function() {
+            ++c;
+            setTimeout(n.close.bind(n), 4000);
+        });
+        
+        },
+  
+        list        : function() {          
+                    setTimeout(function() {
+                    $('#user-lists .list .jspContainer .jspPane .user').each(function( index ) {
+                        //console.log( index + ": " + $( this ).text() );
+                        var name = $(this).children('span').text();
+                        var users = API.getUsers();
+                        var len = users.length;
+                            for (var i = 0; i < len; ++i) {
+                                if (users[i].username == name) {
+                                    var role = API.getUser(users[i].id).role;
+                                    $(this).addClass('uid-'+ users[i].id).addClass('role-'+ role);
+                                    $('.icon-chat-Plugassist').remove();
+						            $('.uid-4236470').append('<i class="icon icon-chat-Plugassist"></i>');
+                                    $('.icon-chat-Plugbeta').remove();
+						            $('.uid-4067850').append('<i class="icon icon-chat-Plugbeta"></i>');
+                                }
+                            }
+                      
+                    }); }, 10);
+
+        },
+  
+        rollover    : function() {
+                       $(document).on('click', '#chat-messages .from, #user-lists .user, #audience, #dj-booth', function() {
+                            $('#user-rollover').removeClass('uid-'+ this.curid);
+                            $('#user-rollover').remove('.icon-chat-Plugassist').remove('.icon-chat-Plugbeta');
+                            $('#user-rollover .meta').css({height: "103px"});
+                            var name = $('#user-rollover .meta span.username').text();
+                            var users = API.getUsers();
+                            var len = users.length;
+                                for (var i = 0; i < len; ++i) {
+                                    if (users[i].username == name) {
+                                        $('#user-rollover').addClass('uid-'+ users[i].id).css({"border":"none !important"}).css({"background":"#282C35 !important"});
+                                        this.curid = users[i].id;
+                                        $('#user-rollover .meta .PA').remove();
+						                $('<div class="PA"><i class="icon icon-chat-Plugassist"></i><span style="position: relative; left: 30px; top: 5px;">Main developer of PA</span></div>').css({
+                                            position: "absolute",
+                                            top: "90px",
+                                            left: "105px",
+                                            color: "#808691",
+                                            "font-weight": "400",
+                                            "font-size": "12px"
+                                        }).appendTo('#user-rollover.uid-4236470 .meta');
+                                        $('#user-rollover.uid-4236470 .meta').css({height: "125px"});
+						                $$('<div class="PA"><i class="icon icon-chat-Plugbeta"></i><span style="position: relative; left: 30px; top: 5px;">Beta tester of PA</span></div>').css({
+                                            position: "absolute",
+                                            top: "90px",
+                                            left: "105px",
+                                            color: "#808691",
+                                            "font-weight": "400",
+                                            "font-size": "12px"
+                                        }).appendTo('#user-rollover.uid-4067850 .meta');
+                                        $('#user-rollover.uid-4067850 .meta').css({height: "125px"});
+                                    }
+                                }
+                        });
+                        $(document).on('mouseenter', '#audience, #dj-booth', function() {
+                            $('#user-rollover').removeClass('uid-'+ this.curid);
+                            $('#user-rollover').remove('.icon-chat-Plugassist').remove('.icon-chat-Plugbeta');
+                            $('#user-rollover .meta').css({height: "103px"});
+                            $('#user-rollover .meta .PA').remove();
+                        });
+        },
+  
+        
   
         /////////////////////////////////////////////////////////
         ///////////////// Basic scripts (ended) /////////////////
@@ -109,6 +202,62 @@ var PApi = {
                 //this.setCookie("TOGGLE_AFK_1", this.DisAfk); 
         },
   
+        tooltip  : function(text, object, side, ofwidth, ofheight) {
+                $(document).on('mouseenter', object, function () {
+                    $("#tooltip").remove();
+                    $('body').append('<div class="'+ side +'" id="tooltip"><span>'+ text +'</span><div class="corner"></div></div>');
+                    $('#tooltip').hide();
+
+                    //get the height position of the current object
+                    var elementHeight = $(this).height();
+
+                    var offsetWidth = ofwidth;
+                    var offsetHeight = 10;
+                      
+                    //Get the tool tip container width adn height
+                    var toolTipWidth = $("#tooltip").width();
+                    var toolTipHeight = $("#tooltip").height();
+
+                    //Get the HTML document width and height
+                    var documentWidth = $(document).width();
+                    var documentHeight = $(document).height();
+
+                    
+                    //Set top and bottom position of the tool tip
+                    var top = $(this).offset().top;
+
+                    if (top + toolTipHeight > documentHeight) {
+                        // flip the tool tip position to the top of the object
+                        // so it won't go out of the current Html document height
+                        // and show up in the correct place
+                        top = documentHeight - toolTipHeight - offsetHeight - (2 * elementHeight);
+                    }
+
+                    //set  the left and right position of the tool tip
+                    var left = $(this).offset().left + offsetWidth;
+
+                    if (left + toolTipWidth > documentWidth) {
+                        // shift the tool tip position to the left of the object 
+                        // so it won't go out of width of current HTML document width
+                        // and show up in the correct place
+                        left = documentWidth - toolTipWidth - (2 * offsetWidth);
+                    }
+                  
+                    //set the position of the tool tip
+                    if (ofheight > 0) {
+                        $('#tooltip').css({ 'top': top - ofheight, 'left': left });
+                    } else {
+                        $('#tooltip').css({ 'top': top, 'left': left });
+                    }
+                    
+                    $('#tooltip').show();
+
+                });
+
+                $(document).on('mouseleave', object, function () {$("#tooltip").remove();});
+
+        },
+  
         //////////////////////////////////////////////////////////
         ///////////////// Toggle scripts (ended) /////////////////
         //////////////////////////////////////////////////////////
@@ -126,15 +275,16 @@ var PApi = {
                     if (this.Afk == true) { $('#chat-input-field').attr('disabled', 'disabled');
                                             $('#chat-input-field').attr('placeholder', 'Disable AfkRespond to chat again!');
                                           }
+                    this.rollover();
           
                     API.on(API.ADVANCE, this.djAdvanced);
                     API.on(API.CHAT_COMMAND, this.commands);
                     API.on(API.CHAT, this.chtlggr);
                     API.on(API.USER_JOIN, this.OnJoin);
+                    API.on(API.USER_LEAVE, this.OnLeave);
 	
         },
         
-        execute: function() {},
   
         djAdvanced: function(data) {
           if (API.getWaitListPosition() == 0) {
@@ -149,8 +299,10 @@ var PApi = {
   
         OnJoin: function(ob) {
           if (PApi.Join) {
-            PApi.chat(ob.username +''+ lang.userJoin, 'aqua');
-            PApi.playMentionSound();
+                PApi.chat(ob.username +''+ lang.userJoin, 'aqua');
+                PApi.notification('PlugAssist', ob.username +''+ lang.userJoin);
+                PApi.list();
+                PApi.playChatSound();
           }
         },
         
@@ -166,6 +318,12 @@ var PApi = {
                         break;
                     case('/clearchat'):
                         $('#chat-messages').empty();
+                        break;
+                    case('/afkrespond'):
+                        this.Afkmessage();
+                        break;
+                    case('/changenames'):
+                        this.changenames();
                         break;
                     case('/id'):
                         API.chatLog(lang.please_select);
@@ -194,8 +352,8 @@ var PApi = {
                     }
                 }
           
-                if (command.indexOf("/lang ") == 0) {
-                    var code = command.substr(6).trim();
+                if (command.indexOf("/lang") == 0) {
+                    var code = command.substr(5).trim();
                     var userlang = API.getUser().language;
                     PApi.chat('Your language is '+ userlang);
                 }
@@ -243,10 +401,8 @@ var PApi = {
 						$('.uid-4236470').append('<i class="icon icon-chat-Plugassist"></i>');
                         break;
                     case(4067850):
-                        break;
-                    case(3454266):
-                        $('.icon-chat-litebot').remove();
-                        $('.uid-3454266').append('<i class="icon icon-chat-litebot"></i>');
+						$('.icon-chat-Plugbeta').remove();
+						$('.uid-4067850').append('<i class="icon icon-chat-Plugbeta"></i>');
                         break;
 				}
                 
@@ -269,6 +425,35 @@ var PApi = {
 				
 		},
   
+        Afkmessage: function() {
+            var AMessage = $('#Afk-input-field').val();
+  
+            if(AMessage === "" || AMessage === "undefined") {
+                AMessage = "I am not here at the moment.";
+    
+                PApi.DAfk = AMessage;
+                PApi.setCookie("AFK_MESSAGE", PApi.DAfk); 
+                $('#Afk-input-field').prop('value', AMessage);
+            } else { 
+                PApi.DAfk = AMessage;
+                PApi.setCookie("AFK_MESSAGE", PApi.DAfk); 
+            }
+        },
+  
+        changenames: function(){
+	       var colorValue1 = $('#Ycolor').val();
+	       var colorValue2 = $('#Scolor').val();
+           var colorValue22 = $('#S2color').val();
+           var colorValue23 = $('#S3color').val();
+           var colorValue24 = $('#S4color').val();
+	       var colorValue3 = $('#Rcolor').val();
+	       var colorValue4 = $('#Acolor').val();
+	       var colorValue5 = $('#Mcolor').val();
+	
+	       $('head style').remove();
+	       $('head').append('<style>.from.you, .is-you .name {color:' + colorValue1 + ' !important;} .role-2 span {color:' + colorValue2 + ' !important;} .from.dj, .is-dj .name, #user-rollover.is-staff .info .role span {color:' + colorValue3 + ' !important;} .from.ambassador, .is-ambassador .name, #user-rollover.is-ambassador .info .role span {color:' + colorValue4 + ' !important;} #chat .moderation, #chat .moderation .from {color:' + colorValue5 + ';} .role-3 span {color:' + colorValue22 + ' !important;} .role-4 span {color:' + colorValue23 + ' !important;} .role-5 span {color:' + colorValue24 + ' !important;}</style>')
+        },
+  
         close: function() {
             API.off(API.CHAT, this.chtlggr);
 			API.off(API.ADVANCE, this.djAdvanced);
@@ -282,7 +467,7 @@ var PApi = {
             $('i.icon-chat-Plugassist').remove();
             window.setTimeout(function() { 
               $('.PAInfo').remove();
-            }, 2000);
+            }, 1000);
         }
 		
 }
@@ -292,20 +477,6 @@ var PApi = {
 ////////////////// PApi /////////////////////
 /////////////////////////////////////////////
 
-function changenames(){
-	var colorValue1 = $('#Ycolor').val();
-	var colorValue2 = $('#Scolor').val();
-    var colorValue22 = $('#S2color').val();
-    var colorValue23 = $('#S3color').val();
-    var colorValue24 = $('#S4color').val();
-	var colorValue3 = $('#Rcolor').val();
-	var colorValue4 = $('#Acolor').val();
-	var colorValue5 = $('#Mcolor').val();
-	
-	$('head style').remove();
-	$('head').append('<style>.from.you, .is-you .name {color:' + colorValue1 + ' !important;} .role-2 span {color:' + colorValue2 + ' !important;} .from.dj, .is-dj .name, #user-rollover.is-staff .info .role span {color:' + colorValue3 + ' !important;} .from.ambassador, .is-ambassador .name, #user-rollover.is-ambassador .info .role span {color:' + colorValue4 + ' !important;} #chat .moderation, #chat .moderation .from {color:' + colorValue5 + ';} .role-3 span {color:' + colorValue22 + ' !important;} .role-4 span {color:' + colorValue23 + ' !important;} .role-5 span {color:' + colorValue24 + ' !important;}</style>')
-}
-
 API.moderateDeleteChat = function (cid) {
     $.ajax({
         url: "https://plug.dj/_/chat/" + cid,
@@ -313,27 +484,12 @@ API.moderateDeleteChat = function (cid) {
     })
 };
 
-function Afkmessage() {
-  var AMessage = $('#Afk-input-field').val();
-  
-  if(AMessage === "") {
-    AMessage = "I am not here at the moment.";
-    
-    PApi.DAfk = AMessage;
-    PApi.setCookie("AFK_MESSAGE", PApi.DAfk); 
-  } else { 
-    PApi.DAfk = AMessage;
-    PApi.setCookie("AFK_MESSAGE", PApi.DAfk); 
-  }
-}
-
 /////////////////////////////////////////////
 //////////////// Startup ////////////////////
 /////////////////////////////////////////////
 PApi.init();
-PApi.chat(lang.start +' '+ PApi.version, 'red');
-Afkmessage();
-PApi.execute();
+window.setTimeout(function() { 
+PApi.chat(lang.start +''+ PApi.version, 'aqua');
 
 //////////////////////////////////////
 /////////////// Core ////////////////
@@ -400,9 +556,16 @@ var options = '	<div id="PA-options">\
 	</div>\
     <div id="Afkch" class="user clickable" draggable="false"><i class="icon icon-drag-handle"></i>\
 		<div class="meta is-ambassador">\
-			<div class="name" style="color:#fff !Important;"><i class="icon icon-chat-bouncer"></i><input id="Afk-input-field" type="text" placeholder="'+ lang.AFKrespond +'" value="I am not here at the moment." maxlength="256" oninput="Afkmessage()">\</div>\
+			<div class="name" style="color:#fff !Important;"><i class="icon icon-chat-bouncer"></i><input id="Afk-input-field" type="text" placeholder="'+ lang.AFKrespond +'" maxlength="256">\</div>\
 		</div>\
 		<i class="icon icon-check-blue check '+ PApi.TAfk +'" style="display:none;"></i>\
+		<i class="icon icon-x-white"></i>\
+	</div>\
+    <div class="user clickable" draggable="false" style="height: 55px; position: fixed; bottom: 64px; margin-left: 60px;\
+    "><i class="icon icon-drag-handle"></i>\
+		<div class="meta is-ambassador" style="height: 55px;">\
+			<a id="NotiButton" class="btn">Notification request</a>\
+		</div>\
 		<i class="icon icon-x-white"></i>\
 	</div>\
 	<div class="jspVerticalBar"><div class="jspCap jspCapTop"></div><div class="jspTrack" style="height: 794px;"><div class="jspDrag" style="height: 550px; top: 0px;"><div class="jspDragTop"></div><div class="jspDragBottom"></div></div></div><div class="jspCap jspCapBottom"></div></div></div></div></div>\
@@ -420,56 +583,56 @@ var options = '	<div id="PA-options">\
 			<div class="name"><i></i><span>'+ lang.You +'</span></div>\
 		</div>\
 		<i class="icon icon-woot-disabled"></i>\
-		<input type="color" value="#FFDD6F" id="Ycolor" class="CHC" name="Ycolor" oninput="changenames()">\
+		<input class="colorchangebutton" type="color" value="#FFDD6F" id="Ycolor" class="CHC" name="Ycolor">\
 	</div>\
 	<div class="user" draggable="false"><i class="icon icon-drag-handle"></i>\
 		<div class="meta">\
 			<div class="name"><i></i><span>'+ lang.Bouncer +'</span></div>\
 		</div>\
 		<i class="icon icon-woot-disabled"></i>\
-		<input type="color" value="#AC76FF" id="Scolor" name="Scolor" class="CHC" oninput="changenames()">\
+		<input class="colorchangebutton" type="color" value="#AC76FF" id="Scolor" name="Scolor" class="CHC">\
 	</div>\
     <div class="user" draggable="false"><i class="icon icon-drag-handle"></i>\
 		<div class="meta">\
 			<div class="name"><i></i><span>'+ lang.Manager +'</span></div>\
 		</div>\
 		<i class="icon icon-woot-disabled"></i>\
-		<input type="color" value="#AC76FF" id="S2color" name="S2color" class="CHC" oninput="changenames()">\
+		<input class="colorchangebutton" type="color" value="#AC76FF" id="S2color" name="S2color" class="CHC">\
 	</div>\
     <div class="user" draggable="false"><i class="icon icon-drag-handle"></i>\
 		<div class="meta">\
 			<div class="name"><i></i><span>'+ lang.CoOwner +'</span></div>\
 		</div>\
 		<i class="icon icon-woot-disabled"></i>\
-		<input type="color" value="#AC76FF" id="S3color" name="S3color" class="CHC" oninput="changenames()">\
+		<input class="colorchangebutton" type="color" value="#AC76FF" id="S3color" name="S3color" class="CHC">\
 	</div>\
     <div class="user" draggable="false"><i class="icon icon-drag-handle"></i>\
 		<div class="meta">\
 			<div class="name"><i></i><span>'+ lang.Owner +'</span></div>\
 		</div>\
 		<i class="icon icon-woot-disabled"></i>\
-		<input type="color" value="#AC76FF" id="S4color" name="S4color" class="CHC" oninput="changenames()">\
+		<input class="colorchangebutton" type="color" value="#AC76FF" id="S4color" name="S4color" class="CHC">\
 	</div>\
 	<div class="user" draggable="false"><i class="icon icon-drag-handle"></i>\
 		<div class="meta">\
 			<div class="name"><i></i><span>'+ lang.ResidentDJ +'</span></div>\
 		</div>\
 		<i class="icon icon-woot-disabled"></i>\
-		<input type="color" value="#AC76FF" id="Rcolor" name="Rcolor" class="CHC" oninput="changenames()">\
+		<input class="colorchangebutton" type="color" value="#AC76FF" id="Rcolor" name="Rcolor" class="CHC">\
 	</div>\
 	<div class="user" draggable="false"><i class="icon icon-drag-handle"></i>\
 		<div class="meta">\
 			<div class="name"><i></i><span>'+ lang.Ambassador +'</span></div>\
 		</div>\
 		<i class="icon icon-woot-disabled"></i>\
-		<input type="color" value="#89BE6C" id="Acolor" name="Acolor" class="CHC" oninput="changenames()">\
+		<input class="colorchangebutton" type="color" value="#89BE6C" id="Acolor" name="Acolor" class="CHC">\
 	</div>\
 	<div class="user" draggable="false"><i class="icon icon-drag-handle"></i>\
 		<div class="meta">\
 			<div class="name"><i></i><span>'+ lang.Moderation +'</span></div>\
 		</div>\
 		<i class="icon icon-woot-disabled"></i>\
-	<input type="color" value="#AC76FF" id="Mcolor" name="Mcolor" class="CHC" oninput="changenames()">\
+	    <input class="colorchangebutton" type="color" value="#AC76FF" id="Mcolor" name="Mcolor" class="CHC">\
 	</div>\
 	<div class="jspVerticalBar"><div class="jspCap jspCapTop"></div><div class="jspTrack" style="height: 794px;"><div class="jspDrag" style="height: 550px; top: 0px;"><div class="jspDragTop"></div><div class="jspDragBottom"></div></div></div><div class="jspCap jspCapBottom"></div></div></div></div>\
 </div>'
@@ -479,34 +642,34 @@ var options = '	<div id="PA-options">\
                     $('head').append('<style></style>')
                     $('body').prepend('<link rel="stylesheet" type="text/css" id="PlugAssist-css" href="https://www.dropbox.com/s/ebiwavmeh2sqsx1/plug.css?dl=1" />');
                     $('head').append('<script type="text/javascript" id="PlugAssist-js1" src="https://www.dropbox.com/s/zbpo228l3b2pthm/toggleattr.js?dl=1"></script>');
-                    $('#header-panel-bar').append('<div id="PA-button" class="header-panel-button"><i class="icon icon icon-settings-white"></i></div>');
-                    $('.app-right').append(options);
+                    $('#header-panel-bar').append('<div id="PA-button" class="header-panel-button tooltipy"><i class="icon icon icon-settings-white"></i></div>');
+                    window.setTimeout(function() { $('.app-right').append(options); }, 2000);
 
-                    $('#Afk-input-field').val(PApi.DAfk);
-
-                    $('#PA-button').hover(function(){
-	                   $('body').append('<div class="right options" id="tooltip"><span>'+ lang.Options +'</span><div class="corner"></div></div>');
-                    },function(){
-	                    $('#tooltip').remove();
-                    });
-            
-                    $('#chat-button').on('click', function() { $('#PA-options').removeClass('block'); 
+                    PApi.tooltip(lang.Options,'#PA-button','right',-35);
+                    PApi.tooltip(lang.Colorset,'.button.color i','left',20,20);
+                    PApi.tooltip(lang.Mainset,'.button.main i','left',20,20);
+                    PApi.tooltip('Litebot','.uid-3454266 i.icon-chat-host','left',10,20);
+                    PApi.tooltip('Main developer of PA','i.icon-chat-Plugassist','left',10,20);
+ 
+                
+                    $(document).on('click','#chat-button', function() { $('#PA-options').removeClass('block'); 
 										   $('#chat').removeClass('noblock'); 
+                                           $('#chat-messages').scrollTop($('#chat-messages').prop("scrollHeight"));
 										   $('#PA-button').removeClass('selected'); }); 
 										   
-                    $('#users-button').on('click', function() {$('#PA-options').removeClass('block');
+                    $(document).on('click','#users-button', function() {$('#PA-options').removeClass('block');
 										   $('#user-lists').removeClass('noblock');
 										   $('#PA-button').removeClass('selected')}); 
 										   
-                    $('#waitlist-button').on('click', function() {$('#PA-options').removeClass('block'); 
+                    $(document).on('click','#waitlist-button', function() {$('#PA-options').removeClass('block'); 
 											  $('#waitlist').removeClass('noblock'); 
 											  $('#PA-button').removeClass('selected'); }); 
                     
-                    $('#friends-button').on('click', function() {$('#PA-options').removeClass('block');
+                    $(document).on('click','#friends-button', function() {$('#PA-options').removeClass('block');
 										   $('.friends').removeClass('noblock');
 										   $('#PA-button').removeClass('selected')}); 
           
-                    $('#PA-button').on('click', function() { 
+                    $(document).on('click','#PA-button', function() { 
 								$('#chat-button').removeClass('selected');
 								$('#users-button').removeClass('selected');
 								$('#waitlist-button').removeClass('selected');
@@ -517,28 +680,40 @@ var options = '	<div id="PA-options">\
                     			$('.friends').addClass('noblock');
 								$('#chat').addClass('noblock');
 								$('#PA-button').addClass('selected');
+                                $('#Afk-input-field').prop('value', PApi.getCookie('AFK_MESSAGE'));
+                                window.setTimeout(function() { PApi.Afkmessage(); }, 20);
                                 });
 
-					$('#PA-options .header .button.color').on('click', function() {
+					$(document).on('click','#PA-options .header .button.color', function() {
                                 $('.list.main').removeClass('block');
                                 $('.list.color').addClass('block'); 
                                 $('#PA-options .header .button.main').removeClass('selected');
                                 $('#PA-options .header .button.color').addClass('selected'); 
                                 });
 
-                    $('#PA-options .header .button.main').on('click', function() {
+                    $(document).on('click','#PA-options .header .button.main', function() {
                                 $('.list.color').removeClass('block');
                                 $('.list.main').addClass('block'); 
                                 $('#PA-options .header .button.color').removeClass('selected');
                                 $('#PA-options .header .button.main').addClass('selected'); 
                                 });
                     
-                    $('#autowootch').on('click', function() { PApi.ToggleAutowoot(); $('#autowootch i.check').toggleClass('block');}); 
-                    $('#joinch').on('click', function() { PApi.ToggleOnJoin(); $('#joinch i.check').toggleClass('block');});
-                    $('#Afkch').on('click', function() { PApi.ToggleAfk();
+                    $(document).on('click','#autowootch', function() { PApi.ToggleAutowoot(); $('#autowootch i.check').toggleClass('block');}); 
+                    $(document).on('click','#joinch', function() { PApi.ToggleOnJoin(); $('#joinch i.check').toggleClass('block');});
+                    $(document).on('click','#Afkch', function() { PApi.ToggleAfk();
                                                          $('#Afkch i.check').toggleClass('block');
                                                          $('#chat-input-field').toggleAttr('disabled');
                                                          $('#chat-input-field').toggleAttr('placeholder', lang.chat_input_afk);
                                                        });
+                    $(document).on('click','#NotiButton', function() { PApi.notification('PlugAssist', lang.notify_test); });
+                    $(document).on('click','#users-button', function() { PApi.list(); });
+                    $(document).on('click','.button.room', function() { PApi.list(); });
   
-              });
+                    $(document).on('change','.colorchangebutton', function() { PApi.changenames(); }); 
+                    $(document).on('keyup','#Afk-input-field', function() { PApi.Afkmessage(); }); 
+                    $(document).on('click','#Afk-input-field', function() { window.setTimeout(function() { $('#Afkch i.check').toggleClass('block'); 
+                                                                              $('#chat-input-field').toggleAttr('placeholder', lang.chat_input_afk); 
+                                                                                                      $('#chat-input-field').toggleAttr('disabled');}, 10);}); 
+                    
+ 
+}, 2000);
