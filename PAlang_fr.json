@@ -24,6 +24,7 @@
     "or_type":           "Ou tapez dans le chat /id @(pseudo)",
     "useAlert":          "J'utilise le script PlugAssist dans cette langue !",
     
+    "chat_input_afk":    "Désactivez la réponse automatique d'AFK pour pouvoir discuter !",
     "maindev":           "Main developer of PA",
     "Betatest":          "Beta tester of PA",
     "Translator":        "Translator of PA",
