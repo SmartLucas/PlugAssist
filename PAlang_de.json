@@ -28,9 +28,9 @@
     "useAlert":          "Ich benutze PlugAssist in dieser Sprache! (DE)",
     
     "chat_input_afk":    "Schalte den AutoAFK-Beantworter aus!",
-    "maindev":           "Haupt Developer von PA"
-    "Betatest":          "Beta tester von PA"
-    "Translator":        "Übersetzer von PA"
+    "maindev":           "Haupt Developer von PA",
+    "Betatest":          "Beta tester von PA",
+    "Translator":        "Übersetzer von PA",
     
     "notify_test":       "Benachrichtigungen schließen sich nach 4 sekunden."
 }
