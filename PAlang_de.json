@@ -1,0 +1,36 @@
+{
+    "start":             "Willkommen in PlugAssist version ",
+    "close":             "Tschüss!",
+    
+    "Options" :          "Einstellungen",
+    "POptions":          "Plug Assist Einstellungen",
+    "Autowoot":          "Autowoot",
+    "JMessage":          "Join Message",
+    "LMessage":          "Leave Message",
+    "AFKrespond":        "Afk Autobeantworter",
+    "Colorset":          "Einstellungen von Farben",
+    "Mainset":           "Haupt Einstellungen",
+    "You":               "Du",
+    "Bouncer":           "Bouncer",
+    "Manager":           "Manager",
+    "CoOwner":           "Co-Owner",
+    "Owner":             "Owner",
+    "ResidentDJ":        "Resident Dj",
+    "Ambassador":        "Ambassador",
+    "Moderation":        "Moderation",
+    
+    "boothAlert":        "Du kommst nach diesen Song!",
+    "userJoin":          " tritt die Community bei!",
+    "userLeave":         " verließ die Community!",
+
+    "please_select":     "Bitte wähle ein Benutzer (Clicke auf jene Name im Chat oder im Userlist)",
+    "or_type":           "Oder schreibe ins Chat rein: /id @(name)",
+    "useAlert":          "Ich benutze PlugAssist in dieser Sprache! (DE)",
+    
+    "chat_input_afk":    "Schalte den AutoAFK-Beantworter aus!",
+    "maindev":           "Haupt Developer von PA"
+    "Betatest":          "Beta tester von PA"
+    "Translator":        "Übersetzer von PA"
+    
+    "notify_test":       "Benachrichtigungen schließen sich nach 4 sekunden."
+}
