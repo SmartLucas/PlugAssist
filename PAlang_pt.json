@@ -25,10 +25,8 @@
     "or_type":           "Ou digitar / id @ (nome)",
     "useAlert":          "Eu estou usando o script PlugAssist nesta linguagem!",
         
-    "notify": {
-        "bgchange_text": "Put your bg link in the box. If you let it blank, the default Background will stay.",
-        "bgchange_done": "Done",
-    },
+    "notify_bgchange_text": "Put your bg link in the box. If you let it blank, the default Background will stay.",
+    "notify_bgchange_done": "Done",
     
     "chat_input_afk":    "Desligar resposta automática!",
     "maindev":           "Main developer of PA",
