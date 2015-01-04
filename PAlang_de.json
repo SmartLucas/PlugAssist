@@ -26,11 +26,6 @@
     "please_select":     "Bitte wähle ein Benutzer (Clicke auf jene Name im Chat oder im Userlist)",
     "or_type":           "Oder schreibe ins Chat rein: /id @(name)",
     "useAlert":          "Ich benutze PlugAssist in dieser Sprache! (DE)",
-        
-    "notify": {
-        "bgchange_text": "Schreibe den Link in das Textfeld hinein. Wenn es leer bleibt, wird die Standardhintergrund eingesetzt.",
-        "bgchange_done": "Fertig",
-    },
     
     "chat_input_afk":    "Schalte den AutoAFK-Beantworter aus!",
     "maindev":           "Haupt Developer von PA",
