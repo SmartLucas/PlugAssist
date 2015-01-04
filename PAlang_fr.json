@@ -23,6 +23,9 @@
     "please_select":     "Veuillez sélectionner un utilisateur (Cliquez sur leur pseudo dans le chat ou dans la liste d'utilisateurs)",
     "or_type":           "Ou tapez dans le chat /id @(pseudo)",
     "useAlert":          "J'utilise le script PlugAssist dans cette langue !",
+            
+    "notify_bgchange_text": "Put your bg link in the box. If you let it blank, the default Background will stay.",
+    "notify_bgchange_done": "Done",
     
     "chat_input_afk":    "Désactivez la réponse automatique d'AFK pour pouvoir discuter !",
     "maindev":           "Main developer of PA",
