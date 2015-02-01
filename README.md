@@ -10,7 +10,9 @@ What can it do?
 * Afk Respond
 * Join / Leave Messages
 * Chat colors
-* **New** Different Languages
+* Different Languages
+* **New** Changeable backgrounds
+* **_Working_** Private messaging 
 
 But How?
 ==========
@@ -31,6 +33,7 @@ Yes, you can! I need translators to translate my script  (logic...). Just Email 
 | English       | X |
 | French        | X |
 | Portuguese    | X |
+| German        | X |
 | Bulgarian     |   |
 | Czech         |   |
 | Finnish       |   |
