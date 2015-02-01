@@ -1,7 +1,7 @@
 PlugAssist
 ==========
 
-Welcome to this Repo. PlugAssist is a script that was at first a dev learning project, but now, it is public, so feel free to use it.
+Welcome to this Repo. PlugAssist is a script for Plug.dj that was at first a dev learning project, but now, it is public, so feel free to use it.
 
 What can it do?
 ==========
@@ -26,7 +26,7 @@ javascript:(function(){if (API.enabled && $("#PlugAssist-css").length <= 0) {$.g
 Can I help?
 ===========
 
-Yes, you can! I need translators to translate my script  (logic...). Just Email me: anton12002@hotmail.com
+Yes, you can! I need translators to translate my script. Just Email me: anton12002@hotmail.com
 
 | Languages     | Done |
 | ------------- |:-:|
