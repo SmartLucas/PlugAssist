@@ -1,37 +1,41 @@
 {
-    "start":             "Bem-Vindos no PlugAssist v'",
-    "close":             "ByeBye!",
+    "start":             "Seja bem-vindo ao PlugAssist v'",
+    "close":             "Até mais!",
     
     "Options" :          "Opções",
     "POptions":          "Opções do Plug Assist",
     "Autowoot":          "Autowoot",
-    "JMessage":          "Mensagem de entrada",
-    "AFKrespond":        "Resposta Automática Afk",
-    "Colorset":          "Opções de cor",
-    "Mainset":           "Funções Principais",
+    "JMessage":          "Entrada de usuários",
+    "LMessage":          "Saída de usuários",
+    "MMessage":          "Alerta de Meh",
+    "AFKrespond":        "Mensagem automática Afk",
+    "Colorset":          "Configurações de cor",
+    "Mainset":           "Configurações principais",
     "You":               "Você",
     "Bouncer":           "Segurança",
     "Manager":           "Coordenador",
     "CoOwner":           "Co-Anfitrião",
     "Owner":             "Anfitrião",
-    "ResidentDJ":        "Dj Resident",
+    "ResidentDJ":        "Dj Residente",
     "Ambassador":        "Embaixador",
     "Moderation":        "Moderação",
     
-    "boothAlert":        "Você esta vindo após esta música!",
-    "userJoin":          " Entrou na comunidade!",
+    "boothAlert":        "Sua vez esta chegando!",
+    "userJoin":          " Entrou na sala!",
+    "userLeave":         " Saiu da sala!",
+    "userMehed":         "Votou negativo nesta música!",
 
-    "please_select":     "Por favor selecione um usuário (Clique no nome dele no chat ou na lista de espera)",
-    "or_type":           "Ou digitar / id @ (nome)",
-    "useAlert":          "Eu estou usando o script PlugAssist nesta linguagem!",
-        
-    "notify_bgchange_text": "Put your bg link in the box. If you let it blank, the default Background will stay.",
-    "notify_bgchange_done": "Done",
+    "please_select":     "Por favor selecione um usuário (Clique no nome de usuário dele no chat ou na lista de usuários)",
+    "or_type":           "Ou digite no /id @(nome)",
+    "useAlert":          "Eu estou usando o PlugAssist script nesta linguagem!",
     
-    "chat_input_afk":    "Desligar resposta automática!",
-    "maindev":           "Main developer of PA",
-    "Betatest":          "Beta tester of PA",
-    "Translator":        "Translator of PA",
+    "notify_bgchange_text": "Coloque o seu link para o plano de fundo na caixa. Se você deixá-lo em branco, o plano de fundo padrão irá ficar",
+    "notify_bgchange_done": "Fim",
     
-    "notify_test":       "Notifications are closing itself after 4 seconds."
+    "chat_input_afk":    "Desligar resposta automática para o chat!",
+    "maindev":           "Desenvolvedor principal do PA",
+    "Betatest":          "Beta Tester do PA",
+    "Translator":        "Tradutor do PA",
+    
+    "notify_test":       "Notificações estão se fechando em 4 segundos."
 }
