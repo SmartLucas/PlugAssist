@@ -7,7 +7,7 @@
     "Autowoot":          "Autowoot",
     "JMessage":          "Join Message",
     "LMessage":          "Leave Message",
-	"MMessage":          "Meh Alarm",
+    "MMessage":          "Meh Alarm",
     "AFKrespond":        "Afk Autobeantworter",
     "Colorset":          "Einstellungen von Farben",
     "Mainset":           "Haupt Einstellungen",
@@ -23,7 +23,7 @@
     "boothAlert":        "Du kommst nach diesen Song!",
     "userJoin":          " tritt die Community bei!",
     "userLeave":         " verließ die Community!",
-	"userMehed":         "mehte diesen Song!",
+    "userMehed":         "mehte diesen Song!",
 
     "please_select":     "Bitte wähle ein Benutzer (Clicke auf jene Name im Chat oder im Userlist)",
     "or_type":           "Oder schreibe ins Chat rein: /id @(name)",
