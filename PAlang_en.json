@@ -33,9 +33,9 @@
     "notify_bgchange_done": "Done",
     
     "chat_input_afk":    "Turn off Auto Responder to Chat!",
-    "maindev":           "Main developer of PA"
-    "Betatest":          "Beta tester of PA"
-    "Translator":        "Translator of PA"
+    "maindev":           "Main developer of PA",
+    "Betatest":          "Beta tester of PA",
+    "Translator":        "Translator of PA",
     
     "notify_test":       "Notifications are closing itself after 4 seconds."
 }
